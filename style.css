@@ -35,7 +35,7 @@ body{
 }
 
 .result{
-    background-color: #FF8B4F;
+    background: linear-gradient(270deg, #ECC8B6, #FF7442);
     color: white;
     padding: 40px 50px 40px 300px;
     border-radius: 8pt;
@@ -43,13 +43,5 @@ body{
     font-size: 50px;
     margin-top: 30px;
     overflow: none;
-
 }
 
-.body{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: flex-end;
-}
