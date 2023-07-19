@@ -3,6 +3,7 @@ let operation = "+"
 let number2 = 0
 const operationDiv = document.querySelector(".operation")
 const resultDiv = document.querySelector(".result")
+const buttons = document.querySelectorAll("button")
 
 let add = (number1, number2) => {return number1 + number2 }
 
