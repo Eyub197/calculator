@@ -6,6 +6,7 @@ const operationDiv = document.querySelector(".operation")
 const resultDiv = document.querySelector(".result")
 const numberButtons = document.querySelectorAll(".numbers")
 const operationButtons = document.querySelectorAll(".operation")
+const equalsButton = document.querySelector(".equals")
 
 let add = (number1, number2) => {return number1 + number2 }
 
@@ -13,14 +14,14 @@ let subtract = (number1 , number2) => {return number1 - number2}
 
 let multiply = (number1 , number2) => {return number1 * number2}
 
-let divide = () => (number1 , number2) => {return number1 / number2}
+let divide =  (number1 , number2) => {return number1 / number2}
 
-let operate = () =>{
-    if (firstNumber !== null && selectedOperator !== null && displayValue !== '') {
+let operate = () => {
+    if (firstNumber !== null && operation !== null && displayValue !== '') {
     
     const secondNumber =  parseInt(displayValue)
     
-    switch(selectOperation){
+    switch(operation){
         case "+" :
             displayValue = add(firstNumber, secondNumber)
             break
@@ -35,31 +36,9 @@ let operate = () =>{
             break
         default : 
             console.log("added an valid operation")
-    }
-}
-    operationDiv.textContent = displayValue
-}
+   }
 
-let populateDisplay = (number) => {
-    displayValue += number
-    operationDiv.textContent = displayValue
+}  
 }
 
-let selectOperation = (_operation) => {
-   if (displayValue != ""){
-        firstNumber = parseInt(displayValue)
-        operation = _operation
-    }
-}
 
-numberButtons.forEach(nButton => {
-    nButton.addEventListener('click', () => {
-        populateDisplay(nButton.textContent)
-    })
-})
-
-operationButtons.forEach(fButton => {
-    fButton.addEventListener('click', ()=> {
-        selectOperation(fButton.textContent)
-    })
-})
