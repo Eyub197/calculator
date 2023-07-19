@@ -4,7 +4,8 @@ let displayValue = ''
 let resultDisplay = false
 const operationDiv = document.querySelector(".operation")
 const resultDiv = document.querySelector(".result")
-const numberbuttons = document.querySelectorAll(".numbers")
+const numberButtons = document.querySelectorAll(".numbers")
+const operationButtons = document.querySelectorAll(".operation")
 
 let add = (number1, number2) => {return number1 + number2 }
 
@@ -44,6 +45,21 @@ let populateDisplay = (number) => {
     operationDiv.textContent = displayValue
 }
 
-let selectOperation = (operation) => {
-
+let selectOperation = (_operation) => {
+   if (displayValue != ""){
+        firstNumber = parseInt(displayValue)
+        operation = _operation
+    }
 }
+
+numberButtons.forEach(nButton => {
+    nButton.addEventListener('click', () => {
+        populateDisplay(nButton.textContent)
+    })
+})
+
+operationButtons.forEach(fButton => {
+    fButton.addEventListener('click', ()=> {
+        selectOperation(fButton.textContent)
+    })
+})
