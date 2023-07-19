@@ -1,6 +1,8 @@
 let number1 = 0
 let operation = "+"
 let number2 = 0
+const operationDiv = document.querySelector(".operation")
+const resultDiv = document.querySelector(".result")
 
 let add = (number1, number2) => {return number1 + number2 }
 
@@ -32,3 +34,4 @@ let operate = (oper, num1, num2) =>{
     
     return result
 }
+
