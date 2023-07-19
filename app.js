@@ -1,9 +1,10 @@
-let number1 = 0
-let operation = "+"
-let number2 = 0
+let number1 = null
+let operation = null
+let displayValue = ''
+let resultDisplay = false
 const operationDiv = document.querySelector(".operation")
 const resultDiv = document.querySelector(".result")
-const buttons = document.querySelectorAll("button")
+const numberbuttons = document.querySelectorAll(".numbers")
 
 let add = (number1, number2) => {return number1 + number2 }
 
@@ -36,3 +37,8 @@ let operate = (oper, num1, num2) =>{
     return result
 }
 
+numberbuttons.forEach((button) =>{
+    button.addEventListener('click', ()=>{
+        operationDiv.textContent += ` ${button.textContent }`
+    })
+})
