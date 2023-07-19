@@ -1,4 +1,4 @@
-let number1 = null
+let firstNumber = null
 let operation = null
 let displayValue = ''
 let resultDisplay = false
@@ -14,31 +14,36 @@ let multiply = (number1 , number2) => {return number1 * number2}
 
 let divide = () => (number1 , number2) => {return number1 / number2}
 
-let operate = (oper, num1, num2) =>{
-    let result
-
-    switch(oper){
+let operate = () =>{
+    if (firstNumber !== null && selectedOperator !== null && displayValue !== '') {
+    
+    const secondNumber =  parseInt(displayValue)
+    
+    switch(selectOperation){
         case "+" :
-            result = add(num1, num2)
+            displayValue = add(firstNumber, secondNumber)
             break
         case "-" :
-            result =  subtract(num1, num2)
+            displayValue =  subtract(firstNumber, secondNumber)
             break
         case "*" :
-            result =  multiply(num1, num2)
+            displayValue =  multiply(firstNumber, secondNumber)
             break
         case "/" :
-            result =  divide(num1, num2)
+            displayValue =  divide(firstNumber, secondNumber)
             break
         default : 
             console.log("added an valid operation")
     }
-    
-    return result
+}
+    operationDiv.textContent = displayValue
 }
 
-numberbuttons.forEach((button) =>{
-    button.addEventListener('click', ()=>{
-        operationDiv.textContent += ` ${button.textContent }`
-    })
-})
+let populateDisplay = (number) => {
+    displayValue += number
+    operationDiv.textContent = displayValue
+}
+
+let selectOperation = (operation) => {
+
+}
