@@ -1,6 +1,6 @@
 let firstNumber = null
 let operation = null
-let displayValue = null
+let displayValue = 0
 let resultDisplay = false
 const operationDiv = document.querySelector(".operation")
 const resultDiv = document.querySelector(".result")
@@ -45,13 +45,14 @@ function operate ()  {
  }  
 
 
-let showNumbers = (...number) => {
+let showNumbers = (number) => {
     if (displayValue === null || resultDisplay) {
         displayValue = number;
         resultDisplay = false;
     } else {
-        displayValue = number;
+        displayValue += number;
     }
+    displayValue = displayValue.replace(/^0+/, '');
     operationDiv.textContent += displayValue;
 };
 
@@ -63,7 +64,10 @@ let showOperation = (selectedOperation) => {
     resultDisplay = false; 
 };
 
-numberButtons.forEach(nButton => nButton.addEventListener('click', () => showNumbers(nButton.textContent)))
+numberButtons.forEach(nButton => nButton.addEventListener('click', () => {
+   displayValue = null
+   showNumbers(nButton.textContent)}
+    ))
 operationButtons.forEach( oButton => oButton.addEventListener('click', () => showOperation(oButton.textContent)))
 
 equalsButton.addEventListener('click', () => {
