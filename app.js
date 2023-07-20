@@ -9,6 +9,8 @@ const numberButtons = document.querySelectorAll(".numbers")
 const operationButtons = document.querySelectorAll(".operation")
 const equalsButton = document.querySelector(".equals")
 const clearButton = document.querySelector(".clear")
+const backsSpaceButton = document.querySelector(".backspace")
+
 
 let add = (number1, number2) => {return number1 + number2 }
 
@@ -85,3 +87,13 @@ clearButton.addEventListener('click', ()=> {
     operation = ""
     operationDiv.textContent = ""
     resultDiv.textContent = "" })
+
+backsSpaceButton.addEventListener('click', ()=> {
+    if(!resultDisplay){
+        displayValue = displayValue.slice(0, -1)
+        console.log("im clicked")
+        operationDiv.textContent = displayValue || "0";
+    } 
+
+
+})
