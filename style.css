@@ -24,9 +24,11 @@ body{
 .display{
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: flex-end;
     padding: 20px;
+    flex: 2 1 auto;
+    overflow: hidden;
 }
 
 .operation{
@@ -35,14 +37,17 @@ body{
 }
 
 .result{
+    overflow: hidden;
     background: linear-gradient(270deg, #ECC8B6, #FF7442);
     color: white;
-    padding: 40px 50px 40px 300px;
+    padding: 50px 100px;
     border-radius: 8pt;
     text-align: center;
-    font-size: 50px;
+    font-size: 40px;
     margin-top: 30px;
-    overflow: none;
+    max-width: 400px;
+    max-height: 200px;
+    flex: auto;
 }
 
 .body{
@@ -55,6 +60,7 @@ body{
     flex: 1 1 0;
     box-sizing: content-box;
     border: none;
+    overflow: hidden;
 }
 
 .body > button {
