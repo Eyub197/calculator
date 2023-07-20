@@ -22,24 +22,20 @@ function operate ()  {
     const secondNumber =  parseInt(displayValue)
     switch(operation){
         case "+" :
-            displayValue = add(firstNumber, secondNumber).toString()
+            displayValue = add(firstNumber, secondNumber)
             break
         case "-" :
-            displayValue =  subtract(firstNumber, secondNumber).toString()
+            displayValue =  subtract(firstNumber, secondNumber)
             break
         case "*" :
-            displayValue =  multiply(firstNumber, secondNumber).toString()
+            displayValue =  multiply(firstNumber, secondNumber)
             break
         case "/" :
-            displayValue =  divide(firstNumber, secondNumber).toString()
+            displayValue =  divide(firstNumber, secondNumber)
             break
         default : 
             console.log("added an valid operation")
    }
-
-    
-   firstNumber = parseInt(displayValue)
-    console.log(displayValue);
     resultDiv.textContent = displayValue;
     resultDisplay = true;
  }  
@@ -53,27 +49,30 @@ let showNumbers = (number) => {
         displayValue += number;
     }
     displayValue = displayValue.replace(/^0+/, '');
-    operationDiv.textContent += displayValue;
+    operationDiv.textContent = displayValue;
 };
 
 let showOperation = (selectedOperation) => {
     if(firstNumber === null) {firstNumber = parseInt(displayValue)}
 
     operation = selectedOperation;
-    operationDiv.textContent = displayValue +  operation;
+    displayValue = ''
+    operationDiv.textContent +=  operation;
     resultDisplay = false; 
 };
 
 numberButtons.forEach(nButton => nButton.addEventListener('click', () => {
-   displayValue = null
-   showNumbers(nButton.textContent)}
-    ))
+
+   showNumbers(nButton.textContent)
+}))
+
 operationButtons.forEach( oButton => oButton.addEventListener('click', () => showOperation(oButton.textContent)))
 
 equalsButton.addEventListener('click', () => {
     if(firstNumber === null) {firstNumber = parseInt(displayValue)}    
+    
     operate()
-
+    
     firstNumber = null
     operation = null
 }  )
