@@ -7,8 +7,7 @@
 body{
     background-color: #AF8A75;
     display: flex;
-    justify-content: center;
-    
+    justify-content: center; 
 }
 
 .calculator{
