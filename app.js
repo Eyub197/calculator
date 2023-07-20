@@ -2,6 +2,7 @@ let firstNumber = null
 let operation = null
 let displayValue = 0
 let resultDisplay = false
+
 const operationDiv = document.querySelector(".operation")
 const resultDiv = document.querySelector(".result")
 const numberButtons = document.querySelectorAll(".numbers")
@@ -18,7 +19,6 @@ let multiply = (number1, number2) => {return number1 * number2}
 let divide =  (number1, number2) => {return number1 / number2}
 
 function operate ()  {
-    
     const secondNumber =  parseInt(displayValue)
     switch(operation){
         case "+" :
@@ -31,14 +31,17 @@ function operate ()  {
             displayValue =  multiply(firstNumber, secondNumber)
             break
         case "/" :
-            displayValue =  divide(firstNumber, secondNumber)
+            secondNumber === 0 ? displayValue = "you thought you are smart don't you little, its okay have a nice day :) "
+            : displayValue =  divide(firstNumber, secondNumber);
             break
         default : 
             console.log("added an valid operation")
    }
-    resultDiv.textContent = displayValue;
+   if(isNaN(displayValue)){displayValue = "gotcha 2"}
+
+    displayValue > 10000 ? resultDiv.textContent = Math.round(displayValue * 100) / 100 : resultDiv.textContent = displayValue;
     resultDisplay = true;
- }  
+}  
 
 
 let showNumbers = (number) => {
@@ -57,7 +60,7 @@ let showOperation = (selectedOperation) => {
 
     operation = selectedOperation;
     displayValue = ''
-    operationDiv.textContent +=  operation;
+    operationDiv.textContent += displayValue + operation;
     resultDisplay = false; 
 };
 
@@ -69,10 +72,9 @@ numberButtons.forEach(nButton => nButton.addEventListener('click', () => {
 operationButtons.forEach( oButton => oButton.addEventListener('click', () => showOperation(oButton.textContent)))
 
 equalsButton.addEventListener('click', () => {
-    if(firstNumber === null) {firstNumber = parseInt(displayValue)}    
-    
-    operate()
-    
+    firstNumber === null ? resultDiv.textContent = "gotcha" : operate();
+
+
     firstNumber = null
     operation = null
 }  )
