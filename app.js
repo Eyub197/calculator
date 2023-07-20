@@ -7,7 +7,7 @@ const resultDiv = document.querySelector(".result")
 const numberButtons = document.querySelectorAll(".numbers")
 const operationButtons = document.querySelectorAll(".operation")
 const equalsButton = document.querySelector(".equals")
-
+const clearButton = document.querySelector(".clear")
 
 let add = (number1, number2) => {return number1 + number2 }
 
@@ -76,3 +76,10 @@ equalsButton.addEventListener('click', () => {
     firstNumber = null
     operation = null
 }  )
+
+clearButton.addEventListener('click', ()=> {
+    console.log("im clicked")
+    displayValue = ""
+    operation = ""
+    operationDiv.textContent = ""
+    resultDiv.textContent = "" })
